@@ -22,6 +22,8 @@
       color: #fff;
       background: url("https://images.unsplash.com/photo-1484950763426-56b5bf172dbb") center/cover no-repeat fixed;
       transition: background-image 1s ease-in-out;
+      padding: 20px;
+      text-align: center;
     }
 
     h1 {
@@ -55,13 +57,23 @@
 
     #contenido {
       margin-top: 30px;
-      max-width: 600px;
-      text-align: center;
-      font-size: 20px;
-      line-height: 1.4;
+      max-width: 900px;
+      font-size: 18px;
+      line-height: 1.6;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(3px);
-      padding: 10px 18px;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    a {
+      color: #00f0ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -82,22 +94,36 @@
     const secciones = {
       inicio: {
         fondo: 'https://preview.redd.it/ybj6i1ccajl91.png?auto=webp&s=345a940124e5fa702650afc4fe771450e2ac6e28',
-        texto: 'Bienvenido a la sección de Inicio. ¡Jinx te da la bienvenida! 💣'
+        texto: `Nombre y Apellido: Helbert Anthony Mamani Salas\n
+Edad: 24 años\n
+Carrera: Ingeniería Industrial\n
+Facultad: Ingenierías\n
+Código Académico: 251-05-67465\n
+Lengua: Español`
       },
       sobre: {
         fondo: 'https://dmarket.com/blog/best-dota2-wallpapers/dota2logo_hu_f97ddb7f6112a97e.jpg',
-        texto: 'Soy Helbert, estudiante de Ingeniería Industrial apasionado por el desarrollo personal, el gaming y la tecnología. 🎮📚'
+        texto: `Estudiante comprometido de Ingeniería Industrial, con una sólida formación en gestión de procesos, optimización de recursos y análisis de sistemas productivos. Me caracteriza una mentalidad analítica y una fuerte orientación a la mejora continua y la toma de decisiones basadas en datos. Me apasiona comprender el funcionamiento integral de las organizaciones, identificar oportunidades de eficiencia y contribuir activamente en la implementación de soluciones innovadoras que generen valor. Considero que el trabajo en equipo, la comunicación efectiva y la adaptabilidad son claves para afrontar los desafíos de entornos industriales dinámicos y en constante evolución. Además, tengo un gran interés por el desarrollo organizacional, la sostenibilidad y la transformación digital, buscando siempre alinear los objetivos técnicos con una visión estratégica y humana del negocio. Estoy motivado por el aprendizaje constante y busco aplicar mis conocimientos teóricos en experiencias prácticas que impulsen tanto mi crecimiento profesional como el de las empresas en las que colabore.\n
+\n
+Cursos que llevo actualmente:\n
+- Matemática\n
+- Economía General\n
+- Química\n
+- Dibujo Técnico\n
+- Fundamento de Informática`
       },
       contacto: {
         fondo: 'https://wallpapercave.com/wp/wp2593840.jpg',
-        texto: 'Contáctame en: helbert@email.com o sígueme en redes. 💬'
+        texto: `Correo: helbert.anthony4@gmail.com\n
+LinkedIn: <a href="https://www.linkedin.com/in/helbert-salas" target="_blank">https://www.linkedin.com/in/helbert-salas</a>`
       }
     };
 
     function mostrar(seccion) {
       const data = secciones[seccion];
       document.body.style.backgroundImage = `url('${data.fondo}')`;
-      document.getElementById("contenido").innerText = data.texto;
+      // Convertimos saltos de línea a <br> y mostramos HTML
+      document.getElementById("contenido").innerHTML = data.texto.replace(/\n/g, '<br>');
     }
   </script>
 </body>
