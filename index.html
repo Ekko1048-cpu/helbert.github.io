@@ -1,49 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Dinámica</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web de Helbert</title>
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial;
-      text-align: center;
-      padding: 50px;
-      background-color: #f7f7f7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: url("https://images.unsplash.com/photo-1484950763426-56b5bf172dbb") center/cover no-repeat fixed;
+      transition: background-image 1s ease-in-out;
     }
-    button {
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 16px;
+
+    h1 {
+      margin-bottom: 10px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     }
-    #contenido {
+
+    .botones {
       margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      padding: 10px 18px;
+      font-size: 16px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background 0.25s;
+    }
+
+    button:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    #contenido {
+      margin-top: 30px;
+      max-width: 600px;
+      text-align: center;
       font-size: 20px;
-      color: #333;
+      line-height: 1.4;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(3px);
+      padding: 10px 18px;
     }
   </style>
 </head>
 <body>
-  <h1>Mi Página Dinámica con GitHub Pages</h1>
-  <button onclick="mostrar('inicio')">Inicio</button>
-  <button onclick="mostrar('sobre')">Sobre mí</button>
-  <button onclick="mostrar('contacto')">Contacto</button>
+  <h1>¡Bienvenido a mi web, soy Helbert! 🚀</h1>
+
+  <div class="botones">
+    <button onclick="mostrar('inicio')">Inicio</button>
+    <button onclick="mostrar('sobre')">Sobre mí</button>
+    <button onclick="mostrar('contacto')">Contacto</button>
+  </div>
 
   <div id="contenido">
-    ¡Haz clic en un botón para mostrar contenido!
+    ¡Haz clic en un botón para ver la sección!
   </div>
 
   <script>
-    function mostrar(seccion) {
-      let texto = '';
-      if (seccion === 'inicio') {
-        texto = 'Bienvenido a la página de Helbert 🚀';
-      } else if (seccion === 'sobre') {
-        texto = 'Soy estudiante de Ingeniería Industrial, y esta es mi web personal.';
-      } else if (seccion === 'contacto') {
-        texto = 'Puedes escribirme a helbert@email.com o seguirme en redes.';
+    const secciones = {
+      inicio: {
+        fondo: 'https://c4.wallpaperflare.com/wallpaper/996/459/742/viktor-league-of-legends-arcane-league-of-legends-viktor-arcane-hd-wallpaper.jpg',
+        texto: 'Esta es la sección de Inicio. Con el gran Viktor de Arcane. ⚙️'
+      },
+      sobre: {
+        fondo: 'https://dmarket.com/blog/best-dota2-wallpapers/dota2logo_hu_f97ddb7f6112a97e.jpg',
+        texto: 'Soy Helbert, estudiante de Ingeniería Industrial apasionado por el desarrollo personal, el gaming y la tecnología. 🎮📚'
+      },
+      contacto: {
+        fondo: 'https://i.pinimg.com/736x/27/63/de/2763de71b56a726461b0bfa43b1f9252.jpg',
+        texto: 'Contáctame en: helbert@email.com o sígueme en redes. 📧'
       }
-      document.getElementById('contenido').innerText = texto;
+    };
+
+    function mostrar(seccion) {
+      const data = secciones[seccion];
+      document.body.style.backgroundImage = `url('${data.fondo}')`;
+      document.getElementById("contenido").innerText = data.texto;
     }
   </script>
 </body>
