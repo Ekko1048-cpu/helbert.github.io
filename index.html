@@ -3,10 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Página Web</title>
+  <title>Página Dinámica</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 50px;
+      background-color: #f7f7f7;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    #contenido {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-  <h1>¡Hola! Soy Helbert 👋</h1>
-  <p>Esta es mi primera página web publicada con GitHub Pages.</p>
+  <h1>Mi Página Dinámica con GitHub Pages</h1>
+  <button onclick="mostrar('inicio')">Inicio</button>
+  <button onclick="mostrar('sobre')">Sobre mí</button>
+  <button onclick="mostrar('contacto')">Contacto</button>
+
+  <div id="contenido">
+    ¡Haz clic en un botón para mostrar contenido!
+  </div>
+
+  <script>
+    function mostrar(seccion) {
+      let texto = '';
+      if (seccion === 'inicio') {
+        texto = 'Bienvenido a la página de Helbert 🚀';
+      } else if (seccion === 'sobre') {
+        texto = 'Soy estudiante de Ingeniería Industrial, y esta es mi web personal.';
+      } else if (seccion === 'contacto') {
+        texto = 'Puedes escribirme a helbert@email.com o seguirme en redes.';
+      }
+      document.getElementById('contenido').innerText = texto;
+    }
+  </script>
 </body>
 </html>
